@@ -1,0 +1,21 @@
+.allForms {
+  height:93.5vh;
+}
+
+
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.order-completed {
+  font-size: 52px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.order-error {
+  color: red;
+  margin-left: 20px;
+  margin-top: 5px;
+}

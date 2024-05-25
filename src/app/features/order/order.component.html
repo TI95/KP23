@@ -1,0 +1,106 @@
+<section id="allForms" class="allForms">
+  <div class="container col-xl-4 col-lg-6 py-5 ">
+
+    <h1 [style.display]="isHidden? 'none' : 'block'" class="text-center mb-4"> Сделать заказ</h1>
+
+    <form   [style.display]="isHidden? 'none' : 'flex'" [formGroup]="orderForm" class="form row g-3 wow bounceInUp center">
+      <div class="col-xl-4  col-md-6">
+        <label for="firstName" class="form-label">Имя</label>
+        <input type="text" class="form-control" formControlName="name" id="firstName">
+
+
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <div class="text-danger" *ngIf="name?.errors?.['required']">
+            Введите имя
+          </div>
+          <div class="text-danger" *ngIf="name?.errors?.['pattern']">
+            Имя должно содержать только буквы
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-md-6 ">
+        <label for="lastName" class="form-label">Фамилия</label>
+        <input type="text" class="form-control" formControlName="lastName" id="lastName">
+
+        <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+          <div class="text-danger" *ngIf="lastName?.errors?.['required']">
+            Введите фамилию
+          </div>
+          <div class="text-danger" *ngIf="lastName?.errors?.['pattern']">
+            Фамилия должна содержать только буквы
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xl-4 col-md-6">
+        <label for="phone" class="form-label">Телефон</label>
+        <input type="text" class="form-control" formControlName="number" id="phone">
+
+        <div *ngIf="number?.invalid && (number?.dirty || number?.touched)">
+          <div class="text-danger" *ngIf="number?.errors?.['required']">
+            Введите номер
+          </div>
+          <div class="text-danger" *ngIf="number?.errors?.['pattern']">
+            Номер должен содержать 11 цифр с + или без +
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-md-6">
+        <label for="country" class="form-label">Страна </label>
+        <input type="text" class="form-control" formControlName="country" id="country">
+        <div *ngIf="index?.invalid && (index?.dirty || index?.touched)">
+          <div class="text-danger" *ngIf="country?.errors?.['required']">
+            Введите страну
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xl-6 col-md-6 ">
+        <label for="postIndex" class="form-label">Индекс </label>
+        <input type="text" class="form-control" formControlName="index" id="postIndex">
+        <div *ngIf="index?.invalid && (index?.dirty || index?.touched)">
+          <div class="text-danger" *ngIf="index?.errors?.['required']">
+            Введите номер почтовый индекс
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xl-6 col-md-6 ">
+        <label for="postIndex" class="form-label">Адрес </label>
+        <input type="text" class="form-control" formControlName="address" id="address">
+        <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+          <div class="text-danger" *ngIf="address?.errors?.['required']">
+            Введите Адрес
+          </div>
+          <div class="text-danger" *ngIf="address?.errors?.['pattern']">
+            В поле «Адрес» можно вводить: буквы, цифры, пробелы, дефис и слеш.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-md-6 ">
+        <label for="postIndex" class="form-label">Продукт</label>
+        <input  type="text" class="form-control" id="product" formControlName="productTitle" name="product" [attr.disabled]="true">
+      </div>
+
+
+      <div class="col-xl-12 col-md-6">
+        <label for="address" class="form-label">Комментарий к заказу</label>
+        <input type="text" class="form-control" formControlName="comment" id="comment" name="comment">
+      </div>
+
+      <div class="d-grid d-lg-flex justify-content-lg-start">
+
+        <button type="submit" id="btn" class="btn btn-primary hvr-wobble-vertical" [disabled]="orderForm.invalid" (click)="checkOrder()">Отправить</button>
+        <div [style.display]="orderError ? 'block' : 'none'" class="order-error"> Произошла ошибка. Попробуйте еще раз.</div>
+      </div>
+    </form>
+
+    <div class="order-completed" [style.display]="isHidden? 'block' : 'none'">Спасибо за заказ</div>
+  </div>
+</section>

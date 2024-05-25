@@ -1,0 +1,40 @@
+.modal-backdrop.fade
+{
+  opacity: 0.5;
+}
+.modal-open .modal
+{
+  opacity: 1;
+}
+
+#accordion .ui-accordion-header {
+  position: relative;
+}
+#accordion .ui-accordion-header-icon {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 20px;
+  height: 13px;
+  background: url("/assets/images/down.png") 50% 50% no-repeat;
+}
+#accordion .ui-accordion-header-active .ui-accordion-header-icon {
+  background-image: url("/assets/images/up.png");
+}
+
+
+
+/* You can add global styles to this file, and also import other style files */
+@media screen and ( max-width: 420px) {
+
+  #accordion {
+    font-size: 14px;
+  }
+}
+
+.card-img {
+  max-width: 400px;
+}
+
+
